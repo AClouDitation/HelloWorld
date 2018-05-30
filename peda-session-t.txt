@@ -1,4 +1,2 @@
-break /root/Git/shellcode/test.c:52
-break *0x4007c8
-break *0x7fffff7b0000
+break print
 
