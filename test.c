@@ -15,10 +15,9 @@ static uint8_t buf[] = {
 	0xC3											//ret
 };
 
-typedef int (*func_t)(void);
-
 int print(char* message){
 
+	typedef int (*func_t)(void);
 	/* write message address */
 	uint32_t *addr = (uint32_t*)&message;
 	memcpy(buf + 17,(uint8_t*)addr,4);
@@ -45,6 +44,7 @@ int print(char* message){
 
 	func_t func = (func_t)(uint64_t)code;
 	func();
+	munmap(code, sizeof(buf));
 
 	return 0;
 }
@@ -52,7 +52,6 @@ int print(char* message){
 int main(){
 
 	print("Hello World!\n");
-	print("BAKA!\n");
 
 	return 0;
 }
