@@ -9,8 +9,10 @@ A linux x86_64 machine
 ## Compilation
 
 Nothing fancy,
+```
 gcc -o HelloWorld Helloworld.c
-
+```
 ## Running
-
+```
 ./HelloWorld
+```
